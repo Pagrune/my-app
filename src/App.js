@@ -1,24 +1,14 @@
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import './css/style.css';
 import Presentation from'./components/presentation.js';
-
-function Etudes(){
-  return <ul>
-              <li>2021-2024 : BUT MMI </li>
-              <li>2019 : Bac S </li>
-          </ul>
-}
-function Experiences_pro(){
-  return  <div><h2>Mes expériences</h2>
-          <ul>
-              <li>2021 - 2022 : caissière</li>
-          </ul></div>
-}
+import Experience from './components/experience.js';
+import Etudes from './components/etudes.js';
 
 
 function App() {
   return (
-    <><Presentation/><Etudes/></>
+    <><Presentation/><Etudes/><Experience/></>
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />

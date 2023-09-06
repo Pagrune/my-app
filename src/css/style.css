@@ -1,0 +1,24 @@
+.ma_presentation{
+    display: flex;
+    width: 80%;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+}
+
+.mon_image{
+    width: 500px;
+    border-radius: 20px;
+}
+
+.mon_nom{
+    color: pink;
+}
+
+.milieu{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
