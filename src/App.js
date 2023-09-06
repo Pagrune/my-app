@@ -4,11 +4,30 @@ import './css/style.css';
 import Presentation from'./components/presentation.js';
 import Experience from './components/experience.js';
 import Etudes from './components/etudes.js';
+import Villes from './components/villes.js'
+
 
 
 function App() {
+  const villes = [
+    {
+        id :1,
+        nom: 'Strasbourg',
+        isMine : false
+    },
+    {
+        id : 2,
+        nom : 'Mulhouse',
+        isMine : true
+    },
+    {
+        id :3,
+        nom : 'Paris',
+        isMine : false
+    }
+  ]
   return (
-    <><Presentation/><Etudes/><Experience/></>
+    <><Presentation/><Etudes/><Experience/><Villes villes={villes}/></>
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
