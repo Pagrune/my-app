@@ -4,7 +4,9 @@ import './css/style.css';
 import Presentation from'./components/presentation.js';
 import Experience from './components/experience.js';
 import Etudes from './components/etudes.js';
-import Villes from './components/villes.js'
+import Villes from './components/villes.js';
+import Compteur from './components/compteur.js';
+
 
 
 
@@ -26,8 +28,13 @@ function App() {
         isMine : false
     }
   ]
+
   return (
-    <><Presentation/><Etudes/><Experience/><Villes villes={villes}/></>
+    <>
+      <Presentation/><Etudes/><Experience/><Villes villes={villes}/><Compteur/>
+   
+    </>
+   
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
