@@ -6,6 +6,7 @@ import Experience from './components/experience.js';
 import Etudes from './components/etudes.js';
 import Villes from './components/villes.js';
 import Compteur from './components/compteur.js';
+import Chat from './components/chat.js';
 
 
 
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <>
-      <Presentation/><Etudes/><Experience/><Villes villes={villes}/><Compteur/>
+      <Presentation/><Etudes/><Experience/><Villes villes={villes}/><Compteur/><Chat/>
    
     </>
    
