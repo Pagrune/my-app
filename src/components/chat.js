@@ -1,24 +1,45 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect} from 'react';
+
 
 const Chat = () => {
-    const [message, setMessage] = useState([]);
+    const [message, setMessage] = useState(
+        JSON.parse(localStorage.getItem('messages')) || []
+      );
+    const [isOpen, setOpen] = React.useState(
+        JSON.parse(localStorage.getItem('is-open')) || false
+      );
 
     const onSubmit = (e) => {
         e.preventDefault();        
-        setMessage([...message, {text : document.querySelector('#id_message').value}]);
+      
+        const newMessages = [...message, { text: document.querySelector('#id_message').value }];
+        setMessage(newMessages);
+
+        localStorage.setItem('messages', JSON.stringify(newMessages));
+        setOpen(!isOpen);
+
+        document.querySelector('#id_message').value = '';
       };
+
+      useEffect(() => {
+        localStorage.setItem('is-open', JSON.stringify(isOpen));
+      }, [isOpen]);
 
     return (
         <div className='milieu'>
-            <form >
+            <form onSubmit={onSubmit}>
                 <label>Mon message</label>
                 <input id="id_message" type="text" placeholder='Ecrire ici mon message' ></input>
-                <button onClick={onSubmit}>Envoyer mon message</button>
+                <button type="submit">Envoyer mon message</button>
             </form>
             <div>
-                {message.map((msg)=>(
-                <p key={msg.text}>{msg.text}</p>
-            ))}
+                {isOpen && (
+                <div>
+                    {message.map((msg, index) => (
+                    <p key={index}>{msg.text}</p>
+                    ))}
+                </div>
+                )}
             </div>
         </div>
        
@@ -26,3 +47,26 @@ const Chat = () => {
 };
 
 export default Chat;
+
+// const App = () => {
+//     const [isOpen, setOpen] = React.useState(
+//       JSON.parse(localStorage.getItem('is-open')) || false
+//     );
+  
+//     const handleToggle = () => {
+//       setOpen(!isOpen);
+//     };
+  
+//     React.useEffect(() => {
+//       localStorage.setItem('is-open', JSON.stringify(isOpen));
+//     }, [isOpen]);
+  
+//     return (
+//       <div>
+//         <button onClick={handleToggle}>Toggle</button>
+//         {isOpen && <div>Content</div>}
+//       </div>
+//     );
+//   };
+  
+//   export default App;
